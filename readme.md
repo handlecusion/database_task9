@@ -1,5 +1,5 @@
 ### main java code
-```
+```java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -87,7 +87,7 @@ public class StudentCourseInfo {
 
 ### and other sql in java
 **use subquery**
-```
+```sql
 SELECT course_id, sec_id, semester, grade, year, (SELECT title FROM course WHERE course.id = takes.course_id) as title
 FROM takes
 WHERE student_id = ?;
@@ -95,7 +95,7 @@ WHERE student_id = ?;
 
 ### create table code
 **student**
-```
+```sql
 CREATE TABLE student (
     ID INT NOT NULL,
     name VARCHAR(255) NOT NULL,
@@ -106,7 +106,7 @@ CREATE TABLE student (
 ```
 
 **takes**
-```
+```sql
 CREATE TABLE takes (
     ID INT NOT NULL,
     course_id INT NOT NULL,
@@ -119,7 +119,7 @@ CREATE TABLE takes (
 ```
 
 **course**
-```
+```sql
 CREATE TABLE course (
     course_id INT NOT NULL,
     title VARCHAR(255) NOT NULL,
@@ -131,7 +131,7 @@ CREATE TABLE course (
 
 ### insert in table code
 **student**
-```
+```sql
 INSERT INTO student (ID, name, dept_name, tot_cred)
 VALUES
 (1, 'John Doe', 'Computer Science', 120),
@@ -140,7 +140,7 @@ VALUES
 ```
 
 **takes**
-```
+```sql
 -- 학생 1이 3개의 강의 수강
 INSERT INTO takes (ID, course_id, sec_id, semester, year, grade)
 VALUES
@@ -164,7 +164,7 @@ VALUES
 ```
 
 **course**
-```
+```sql
 -- 강의 정보를 course 테이블에 추가
 INSERT INTO course (course_id, title, dept_name, credits)
 VALUES
